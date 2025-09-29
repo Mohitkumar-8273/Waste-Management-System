@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenWaste Rewards | Waste Management Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body class="light-theme">
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fas fa-recycle"></i>
+      <span>GreenWaste Rewards</span>
+    </div>
+    <nav>
+      <a href="#" class="nav-link" data-page="home">Home</a>
+      <a href="#" class="nav-link" data-page="rewards">Rewards</a>
+      <a href="#" class="nav-link" data-page="upload">Upload Video</a>
+      <a href="#" class="nav-link" data-page="about">About</a>
+      <a href="http://127.0.0.1:3000/login.html" class="nav-link login-link">Login</a>
+    </nav>
+  </header>
+
+  <!-- Home Page -->
+  <main id="home-page" class="page-container active-page">
+    <section class="hero">
+      <h1>Turn Waste into Rewards</h1>
+      <p>Upload videos of your green waste management activities and earn points redeemable for exciting rewards. Together, we can make a greener planet!</p>
+      <button class="cta-button" id="upload-video-btn">
+        <i class="fas fa-video"></i> Upload Your Video
+      </button>
+    </section>
+
+    <!-- Sponsorship Section -->
+    <section class="sponsorship-section">
+      <h2>Our Generous Sponsor</h2>
+      <div class="sponsor-banner">
+        <img src="https://via.placeholder.com/1000x300/FFD700/000000?text=Shri+Balaji+Stationers" alt="Shri Balaji Stationers Advertisement Banner">
+      </div>
+      <div class="sponsor-info">
+        <h3 class="sponsor-title">Shri Balaji Stationers</h3>
+        <div class="sponsor-funding">₹5,00,000 Funding Contribution</div>
+        <p class="sponsor-description">
+          We're proud to announce our partnership with Shri Balaji Stationers, who has generously contributed ₹5,00,000 to support our green waste management initiatives. Their commitment to sustainability helps us provide better rewards and expand our community outreach programs.
+        </p>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <i class="fas fa-seedling"></i>
+        <h3>Eco-Friendly Actions</h3>
+        <p>Compost, recycle, or properly dispose of green waste to earn points.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-trophy"></i>
+        <h3>Reward System</h3>
+        <p>Redeem your points for gift cards, eco-products, and community recognition.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Green Community</h3>
+        <p>Join a community of eco-warriors making a difference in waste management.</p>
+      </div>
+    </section>
+    
+    <!-- Partners Section -->
+    <section class="partners-section">
+      <h2>Our Valued Partners</h2>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-logo">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>EcoFund</h3>
+          <p>Providing financial support for sustainable initiatives</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3>GreenEarth</h3>
+          <p>Funding environmental conservation projects</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo">
+            <i class="fas fa-hand-holding-water"></i>
+          </div>
+          <h3>SustainaCorp</h3>
+          <p>Corporate sponsor for waste management programs</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo">
+            <i class="fas fa-tree"></i>
+          </div>
+          <h3>ForestFuture</h3>
+          <p>Supporting reforestation and waste reduction</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Upload & Verification Page -->
+  <main id="upload-page" class="page-container">
+    <!-- Video Upload Section -->
+    <section class="upload-section">
+      <h2>How It Works</h2>
+      <p>Record a short video showing your green waste management activity (composting, recycling, etc.). Upload it to earn points!</p>
+      
+      <div class="upload-area" id="upload-area">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h3>Click to Upload Video</h3>
+        <p>MP4, MOV, or AVI (Max 100MB)</p>
+        <input type="file" id="file-input" accept="video/*">
+      </div>
+      
+      <button class="upload-btn" id="browse-btn">
+        <i class="fas fa-folder-open"></i> Browse Files
+      </button>
+      
+      <div class="video-preview" id="video-preview">
+        <video id="preview-video" controls></video>
+        <p>Your video is ready to submit!</p>
+      </div>
+      
+      <button class="submit-btn" id="submit-btn">
+        <i class="fas fa-paper-plane"></i> Submit for AI Verification
+      </button>
+    </section>
+    
+    <!-- Loading Spinner -->
+    <div class="spinner" id="verification-spinner"></div>
+    
+    <!-- AI Verification Result -->
+    <section class="ai-verification" id="ai-verification">
+      <h2>AI Verification Result</h2>
+      <div class="verification-result">
+        <div class="result-icon" id="result-icon">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <div class="result-text" id="result-text">Analyzing your video...</div>
+        <div class="result-details" id="result-details">
+          Our AI system is analyzing the waste materials in your video to determine if they are biodegradable.
+        </div>
+        <div class="points-earned" id="points-earned">+0 Points</div>
+      </div>
+      <button class="cta-button" id="upload-another-btn">
+        <i class="fas fa-plus-circle"></i> Upload Another Video
+      </button>
+    </section>
+  </main>
+
+  <!-- Rewards Page -->
+  <main id="rewards-page" class="page-container rewards-container">
+    <h1>Available Rewards 🌱</h1>
+    <div class="reward-grid">
+      <div class="reward-card">
+        <h3>Eco Starter Kit</h3>
+        <span class="points">100 Points</span>
+        <p>Compost bin, reusable bags, and seed packets to start your green journey.</p>
+        <button class="btn-secondary">Redeem</button>
+      </div>
+      <div class="reward-card">
+        <h3>Local Farm Voucher</h3>
+        <span class="points">250 Points</span>
+        <p>$25 voucher for organic produce at local farmers markets.</p>
+        <button class="btn-secondary">Redeem</button>
+      </div>
+      <div class="reward-card">
+        <h3>Tree Planting</h3>
+        <span class="points">500 Points</span>
+        <p>We'll plant a tree in your name in a reforestation project.</p>
+        <button class="btn-secondary">Redeem</button>
+      </div>
+      <div class="reward-card">
+        <h3>Premium Composter</h3>
+        <span class="points">1000 Points</span>
+        <p>High-efficiency home composter with odor control system.</p>
+        <button class="btn-secondary">Redeem</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- About Page -->
+  <main id="about-page" class="page-container">
+    <div class="page-header">
+      <h2>About GreenWaste Rewards</h2>
+      <p>We're on a mission to incentivize proper green waste management through our innovative rewards program.</p>
+    </div>
+    
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-img">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="member-info">
+          <h3>Environmental Team</h3>
+          <p>Waste Management Experts</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-img">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="member-info">
+          <h3>Community Leaders</h3>
+          <p>Local Sustainability Advocates</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-img">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="member-info">
+          <h3>Tech Developers</h3>
+          <p>Platform Creators</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="theme-btn">🌙</button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>GreenWaste Rewards</h3>
+        <p>Earn points for eco-friendly waste management and redeem them for sustainable rewards.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="#" class="nav-link" data-page="home">Home</a>
+          <a href="#" class="nav-link" data-page="rewards">Rewards</a>
+          <a href="#" class="nav-link" data-page="upload">Upload Video</a>
+          <a href="#" class="nav-link" data-page="about">About Us</a>
+          <a href="http://127.0.0.1:3000/login.html" class="nav-link login-link">Login</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2023 GreenWaste Rewards. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main2.js"></script>
+</body>
+</html>
